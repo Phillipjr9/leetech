@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 410 1060 480" width="1060" height="480" role="img" aria-label="LEETECH &amp; AUTOS. Gadgets. Cars. Power."><defs>
+    <linearGradient id="carMetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#c9ccd2"/><stop offset="1" stop-color="#8d9199"/>
+    </linearGradient>
+    <linearGradient id="phoneBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff3a3f"/><stop offset="1" stop-color="#b80f16"/>
+    </linearGradient>
+    <radialGradient id="phoneGlow">
+      <stop offset="0" stop-color="#ff2a30" stop-opacity=".34"/><stop offset="1" stop-color="#ff2a30" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g>
+    <ellipse cx="775" cy="545" rx="150" ry="120" fill="url(#phoneGlow)"/>
+    <path fill="url(#phoneBody)" d="M675,484a14,14 0 0 1 11,-14L850,447a14,14 0 0 1 15,11L903,607L700,579Z"/>
+    <path fill="#17181c" d="M689,512L848,486L880,604L712,578Z"/>
+    <path fill="#ffffff" fill-opacity=".16" d="M689,512L848,486L862,547L704,573Z"/>
+    <rect x="745" y="470" width="52" height="5" rx="2.5" transform="rotate(-9.4 771 472)" fill="#ffffff" fill-opacity=".92"/>
+  </g>
+  <g fill="url(#carMetal)" stroke="#6f737b" stroke-width="1.6" stroke-linejoin="round">
+    <!-- hood, windscreen and roof blade -->
+    <path d="M248,716C296,683 358,658 430,645C482,621 560,592 640,587C720,583 800,597 850,611C800,606 718,608 650,613C575,620 512,636 452,653C390,664 312,686 248,716Z"/>
+    <!-- shoulder, haunch and rear deck -->
+    <path d="M452,653C540,659 625,654 668,643C735,626 800,617 850,611C888,620 950,625 1030,629C1008,641 1018,675 1027,712C1012,676 1000,650 972,643C935,640 905,646 880,658C850,676 800,684 740,684C640,684 520,664 452,653Z"/>
+    <!-- rocker -->
+    <path d="M568,686C650,693 770,690 828,679C848,675 860,668 866,660C858,678 845,692 818,698C760,707 650,704 568,686Z"/>
+    <!-- wheel arch crescents -->
+    <path d="M343,714C360,686 388,671 412,671C440,671 465,688 477,714C460,696 438,684 414,684C392,684 372,696 358,714Z"/>
+    <path d="M858,704C868,676 896,661 926,661C958,661 985,680 992,705C976,688 954,674 928,674C902,674 880,688 872,704Z"/>
+    <!-- front lip -->
+    <path d="M283,717L298,711C312,708 328,706 342,705L340,712C322,713 303,715 283,717Z"/>
+    <!-- mirror -->
+    <path fill-rule="evenodd" d="M494,652C492,637 503,627 518,628C531,629 538,639 534,651C520,655 506,655 494,652ZM504,643C505,637 513,634 520,636C525,638 524,644 520,647C514,649 507,648 504,643Z"/>
+  </g><g transform="translate(143 757) scale(1.03573)" fill="none" stroke="#1b1c21" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="4"><path transform="translate(0 0)" d="M4.5,0V33.42L14.58,43.5H49.92"/><path transform="translate(64.32 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(136.32 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(208.32 0)" d="M0,4.5H60M30,4.5V48"/><path transform="translate(282.72 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(354.72 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6"/><path transform="translate(426.72 0)" d="M4.5,0V48M55.5,0V48M4.5,24H55.5"/><path transform="translate(524.72 0)" d="M56,43.5L17,14.5L24,4.5H36L43,14.5V18L13,37L19.5,43.5H34L45,34V26"/><path transform="translate(626.72 0)" d="M4.5,48V14.58L14.58,4.5H45.42L55.5,14.58V48M4.5,27.84H55.5"/><path transform="translate(701.12 0)" d="M4.5,0V33.42L14.58,43.5H45.42L55.5,33.42V0"/><path transform="translate(775.52 0)" d="M0,4.5H60M30,4.5V48"/><path transform="translate(849.92 0)" d="M14.58,4.5H45.42L55.5,14.58V33.42L45.42,43.5H14.58L4.5,33.42V14.58Z"/><path transform="translate(924.32 0)" d="M57.6,4.5H14.58L4.5,14.58V18L10.5,24H47.1L53.1,30V33.42L43.02,43.5H0"/></g><g transform="translate(298 841) scale(0.9623200000000001)" fill="none" stroke="#c8121a" stroke-width="3.6" stroke-linejoin="miter" stroke-miterlimit="4"><path transform="translate(0 0)" d="M35,1.8H7.68L1.8,7.68V20.32L7.68,26.2H33.2V14H18.2"/><path transform="translate(43 0)" d="M1.8,28V7.68L7.68,1.8H27.32L33.2,7.68V28M1.8,16.24H33.2"/><path transform="translate(86 0)" d="M1.8,1.8H27.32L33.2,7.68V20.32L27.32,26.2H1.8Z"/><path transform="translate(129 0)" d="M35,1.8H7.68L1.8,7.68V20.32L7.68,26.2H33.2V14H18.2"/><path transform="translate(172 0)" d="M33.6,1.8H7.68L1.8,7.68V20.32L7.68,26.2H33.6M1.8,14H30"/><path transform="translate(213.6 0)" d="M0,1.8H35M17.5,1.8V28"/><path transform="translate(256.6 0)" d="M33.6,1.8H7.68L1.8,7.68V10.5L5.3,14H28.3L31.8,17.5V20.32L25.92,26.2H0"/><path fill="#c8121a" stroke="none" transform="translate(298.2 0)" d="M0,24.04H3.96V28H0Z"/><path transform="translate(322.16 0)" d="M33.6,1.8H7.68L1.8,7.68V20.32L7.68,26.2H33.6"/><path transform="translate(363.76 0)" d="M1.8,28V7.68L7.68,1.8H27.32L33.2,7.68V28M1.8,16.24H33.2"/><path transform="translate(406.76 0)" d="M1.8,28V1.8H27.32L33.2,7.68V9.24L27.32,15.12H1.8M18.2,15.12L33.2,28"/><path transform="translate(449.76 0)" d="M33.6,1.8H7.68L1.8,7.68V10.5L5.3,14H28.3L31.8,17.5V20.32L25.92,26.2H0"/><path fill="#c8121a" stroke="none" transform="translate(491.36 0)" d="M0,24.04H3.96V28H0Z"/><path transform="translate(515.32 0)" d="M1.8,28V1.8H27.32L33.2,7.68V9.24L27.32,15.12H1.8"/><path transform="translate(558.32 0)" d="M7.68,1.8H27.32L33.2,7.68V20.32L27.32,26.2H7.68L1.8,20.32V7.68Z"/><path transform="translate(601.32 0)" d="M1.8,0V20.32L7.68,26.2H34.32L40.2,20.32V0M21,8.4V26.2"/><path transform="translate(651.32 0)" d="M33.6,1.8H7.68L1.8,7.68V20.32L7.68,26.2H33.6M1.8,14H30"/><path transform="translate(692.92 0)" d="M1.8,28V1.8H27.32L33.2,7.68V9.24L27.32,15.12H1.8M18.2,15.12L33.2,28"/><path fill="#c8121a" stroke="none" transform="translate(735.92 0)" d="M0,24.04H3.96V28H0Z"/></g></svg>

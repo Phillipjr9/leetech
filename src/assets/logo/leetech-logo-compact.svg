@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 410 1060 412" width="1060" height="412" role="img" aria-label="LEETECH &amp; AUTOS">
+  <g>
+    <g transform="rotate(-12.4 675 470)">
+      <path fill="#e4141b" d="M675,481a11,11 0 0 1 11,-11H851a11,11 0 0 1 11,11V497H675Z"/>
+      <rect x="744" y="476" width="50" height="5" rx="2.5" fill="#f6dede"/>
+    </g>
+    <path fill="#e4141b" d="M681,494L691,492L711,574L700,577Z"/>
+    <path fill="#e4141b" d="M853,458L863,456L902,607L891,610Z"/>
+  </g>
+  <g fill="#e6e6e6" stroke="none" stroke-width="1.6" stroke-linejoin="round">
+    <!-- hood, windscreen and roof blade -->
+    <path d="M248,716C296,683 358,658 430,645C482,621 560,592 640,587C720,583 800,597 850,611C800,606 718,608 650,613C575,620 512,636 452,653C390,664 312,686 248,716Z"/>
+    <!-- shoulder, haunch and rear deck -->
+    <path d="M452,653C540,659 625,654 668,643C735,626 800,617 850,611C888,620 950,625 1030,629C1008,641 1018,675 1027,712C1012,676 1000,650 972,643C935,640 905,646 880,658C850,676 800,684 740,684C640,684 520,664 452,653Z"/>
+    <!-- rocker -->
+    <path d="M568,686C650,693 770,690 828,679C848,675 860,668 866,660C858,678 845,692 818,698C760,707 650,704 568,686Z"/>
+    <!-- wheel arch crescents -->
+    <path d="M343,714C360,686 388,671 412,671C440,671 465,688 477,714C460,696 438,684 414,684C392,684 372,696 358,714Z"/>
+    <path d="M858,704C868,676 896,661 926,661C958,661 985,680 992,705C976,688 954,674 928,674C902,674 880,688 872,704Z"/>
+    <!-- front lip -->
+    <path d="M283,717L298,711C312,708 328,706 342,705L340,712C322,713 303,715 283,717Z"/>
+    <!-- mirror -->
+    <path fill-rule="evenodd" d="M494,652C492,637 503,627 518,628C531,629 538,639 534,651C520,655 506,655 494,652ZM504,643C505,637 513,634 520,636C525,638 524,644 520,647C514,649 507,648 504,643Z"/>
+  </g><g transform="translate(143 757) scale(1.03573)" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="4"><path transform="translate(0 0)" d="M4.5,0V33.42L14.58,43.5H49.92"/><path transform="translate(64.32 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(136.32 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(208.32 0)" d="M0,4.5H60M30,4.5V48"/><path transform="translate(282.72 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6M4.5,24H48.6"/><path transform="translate(354.72 0)" d="M57.6,4.5H14.58L4.5,14.58V33.42L14.58,43.5H57.6"/><path transform="translate(426.72 0)" d="M4.5,0V48M55.5,0V48M4.5,24H55.5"/><path transform="translate(524.72 0)" d="M56,43.5L17,14.5L24,4.5H36L43,14.5V18L13,37L19.5,43.5H34L45,34V26"/><path transform="translate(626.72 0)" d="M4.5,48V14.58L14.58,4.5H45.42L55.5,14.58V48M4.5,27.84H55.5"/><path transform="translate(701.12 0)" d="M4.5,0V33.42L14.58,43.5H45.42L55.5,33.42V0"/><path transform="translate(775.52 0)" d="M0,4.5H60M30,4.5V48"/><path transform="translate(849.92 0)" d="M14.58,4.5H45.42L55.5,14.58V33.42L45.42,43.5H14.58L4.5,33.42V14.58Z"/><path transform="translate(924.32 0)" d="M57.6,4.5H14.58L4.5,14.58V18L10.5,24H47.1L53.1,30V33.42L43.02,43.5H0"/></g></svg>
