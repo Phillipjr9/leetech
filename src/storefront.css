@@ -3091,3 +3091,91 @@ em {
     object-position: center bottom;
   }
 }
+
+/* Homepage: how buying works, policy links and the WhatsApp button. */
+.buying-steps {
+  padding-block: 64px;
+}
+.buying-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.buying-step {
+  background: #111113;
+  border: 1px solid #28282c;
+  border-radius: 6px;
+  padding: 24px 22px;
+}
+.buying-number {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red-light);
+}
+.buying-step h3 {
+  font-size: 18px;
+  margin: 12px 0 8px;
+  color: #f2efe9;
+}
+.buying-step p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #aeacab;
+  margin: 0;
+}
+.buying-policy {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border: 1px solid #28282c;
+  border-radius: 6px;
+}
+.buying-policy p {
+  margin: 0;
+  font-size: 14px;
+  color: #aeacab;
+}
+.buying-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.whatsapp-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #25d366;
+  color: #06140b;
+  box-shadow: 0 8px 24px #00000080;
+  transition: transform 0.25s;
+}
+.whatsapp-fab:hover {
+  transform: translateY(-2px);
+}
+.whatsapp-fab:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .buying-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .buying-grid {
+    grid-template-columns: 1fr;
+  }
+}

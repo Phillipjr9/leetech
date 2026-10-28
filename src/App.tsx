@@ -31,6 +31,7 @@ import {
   Menu,
   Minus,
   PackageCheck,
+  MessageCircle,
   Phone,
   Plus,
   Search,
@@ -133,6 +134,29 @@ type InfoKey =
   | "privacy"
   | "terms"
   | "faq";
+
+/* Reviews stay hidden until they are real customer reviews. The current
+   quotes, the 4.9 score and the "Verified purchase" badges are placeholders. */
+const SHOW_REVIEWS = false;
+
+const buyingSteps = [
+  {
+    title: "Choose & enquire",
+    text: "Pick a vehicle and send an enquiry, or call or WhatsApp us about it.",
+  },
+  {
+    title: "Inspect & verify",
+    text: "We inspect the vehicle and check its papers before you commit to anything.",
+  },
+  {
+    title: "Agree & pay",
+    text: "Payment is arranged only after inspection and verification of the purchase agreement.",
+  },
+  {
+    title: "Handover",
+    text: "Collection or delivery is arranged separately once the paperwork is complete.",
+  },
+];
 
 const products: Product[] = [
   {
@@ -2351,6 +2375,52 @@ export default function App() {
         </section>
 
         <section
+          className="buying-steps section container"
+          aria-labelledby="buying-title"
+        >
+          <Reveal>
+            <div className="section-heading">
+              <div>
+                <span className="eyebrow">HOW IT WORKS</span>
+                <h2 id="buying-title">
+                  Buying a car, <em>step by step.</em>
+                </h2>
+              </div>
+            </div>
+          </Reveal>
+          <div className="buying-grid">
+            {buyingSteps.map((step, index) => (
+              <Reveal
+                key={step.title}
+                className="buying-step"
+                delay={index * 0.07}
+              >
+                <span className="buying-number">
+                  0{index + 1}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="buying-policy">
+            <p>Questions about returns, warranty or payment before you buy?</p>
+            <div className="buying-policy-links">
+              <button className="text-link" onClick={() => openInfo("returns")}>
+                Returns <ArrowUpRight size={16} />
+              </button>
+              <button className="text-link" onClick={() => openInfo("warranty")}>
+                Warranty <ArrowUpRight size={16} />
+              </button>
+              <button className="text-link" onClick={() => openInfo("payment")}>
+                Payment terms <ArrowUpRight size={16} />
+              </button>
+            </div>
+          </Reveal>
+        </section>
+
+        {SHOW_REVIEWS && (
+        <section
           className="reviews-section section container"
           aria-labelledby="reviews-title"
         >
@@ -2392,6 +2462,7 @@ export default function App() {
             ))}
           </div>
         </section>
+        )}
 
         <section
           className="newsletter-section"
@@ -2459,6 +2530,16 @@ export default function App() {
           </div>
         </section>
       </main>
+
+      <a
+        className="whatsapp-fab"
+        href="https://wa.me/2349138130976"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with LEETECH & AUTOS on WhatsApp"
+      >
+        <MessageCircle size={24} aria-hidden="true" />
+      </a>
 
       <footer className="site-footer">
         <div className="container">

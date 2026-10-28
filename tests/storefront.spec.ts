@@ -33,7 +33,8 @@ test("the cinematic storefront renders every section without runtime errors", as
   await expect(page.locator(".product-card")).toHaveCount(4);
   await expect(page.locator(".promo-block")).toHaveCount(2);
   await expect(page.locator(".benefit")).toHaveCount(6);
-  await expect(page.locator(".review")).toHaveCount(3);
+  // Reviews are hidden until they are real (see SHOW_REVIEWS in App.tsx).
+  await expect(page.locator(".review")).toHaveCount(0);
   await page.locator("footer").scrollIntoViewIfNeeded();
   await expect(
     page.getByRole("heading", { name: /The privilege of being first/ }),
