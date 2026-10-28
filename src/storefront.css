@@ -3053,3 +3053,41 @@ em {
     white-space: normal;
   }
 }
+
+/* Phone hero: the car sits in its own band below the copy at a readable
+   size instead of being squeezed behind the headline. */
+@media (max-width: 600px) {
+  .hero {
+    height: 820px;
+  }
+  .hero-image.hero-cutout {
+    inset: auto 0 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 360px;
+    transform: none;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+/* Phone deal banner: the AirPods image gets its own band under the copy,
+   at full opacity, instead of a faded strip behind the headline. */
+@media (max-width: 600px) {
+  .deal-banner {
+    min-height: 700px;
+  }
+  .deal-image.deal-cutout {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: 0;
+    width: 86%;
+    height: 300px;
+    transform: translateX(-50%);
+    opacity: 1;
+    object-position: center bottom;
+  }
+}
