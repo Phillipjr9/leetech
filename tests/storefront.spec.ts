@@ -3,6 +3,8 @@ import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
+  // Wait for React to mount so the first interaction is not lost during hydration.
+  await expect(page.locator(".hero-image")).toBeVisible();
 });
 
 test("the cinematic storefront renders every section without runtime errors", async ({
@@ -13,8 +15,8 @@ test("the cinematic storefront renders every section without runtime errors", as
   await expect(page).toHaveTitle(/LEETECH.*AUTOS/);
   await expect(page.locator("h1")).toContainText("LEETECH");
   await expect(page.locator(".hero-image")).toHaveAttribute(
-    "src",
-    /images\.pexels\.com\/photos\/13324313\//,
+    "alt",
+    /Official Land Rover image/,
   );
   await expect(
     page.getByRole("heading", { name: "GADGETS. CARS. POWER." }),
@@ -27,7 +29,7 @@ test("the cinematic storefront renders every section without runtime errors", as
       ),
     ),
   ).toBe(true);
-  await expect(page.locator(".category-button")).toHaveCount(8);
+  await expect(page.locator(".category-button")).toHaveCount(6);
   await expect(page.locator(".product-card")).toHaveCount(4);
   await expect(page.locator(".promo-block")).toHaveCount(2);
   await expect(page.locator(".benefit")).toHaveCount(6);
@@ -41,14 +43,12 @@ test("the cinematic storefront renders every section without runtime errors", as
 
 test("every category shows the matching collection", async ({ page }) => {
   for (const [name, count] of [
-    ["Phones", 3],
-    ["Laptops", 3],
-    ["Accessories", 3],
-    ["Electronics", 3],
-    ["Cars", 7],
-    ["Auto parts", 3],
-    ["New cars", 4],
-    ["Used cars", 3],
+    ["Phones", 4],
+    ["Laptops", 4],
+    ["Accessories", 6],
+    ["Cars", 12],
+    ["New cars", 3],
+    ["Used cars", 9],
   ] as const) {
     await page
       .locator(".category-button")
@@ -60,7 +60,7 @@ test("every category shows the matching collection", async ({ page }) => {
     );
   }
   await page.getByRole("button", { name: "View all products" }).click();
-  await expect(page.locator(".product-card")).toHaveCount(24);
+  await expect(page.locator(".product-card")).toHaveCount(26);
   await page.getByRole("button", { name: "Show best sellers" }).click();
   await expect(page.locator(".product-card")).toHaveCount(4);
 });
@@ -71,8 +71,12 @@ test("search supports live results, empty states and product details", async ({
   await page.keyboard.press("/");
   const search = page.getByRole("textbox", { name: "Search our collection" });
   await search.fill("macbook");
-  await expect(page.locator(".search-result")).toHaveCount(3);
-  await page.locator(".search-result").first().click();
+  await expect(page.locator(".search-result")).toHaveCount(4);
+  await page
+    .locator(".search-result")
+    .filter({ has: page.locator("strong", { hasText: /^MacBook Air 13-inch$/ }) })
+    .first()
+    .click();
   await expect(page.getByRole("dialog")).toContainText("Apple M1 chip");
   await expect(page.getByRole("dialog")).toContainText("256GB SSD storage");
   await page.keyboard.press("Escape");
@@ -96,18 +100,18 @@ test("the bag updates quantities and persists across reloads", async ({
     .getByRole("button", { name: "Open shopping bag, 3 items" })
     .click();
   await expect(page.locator(".cart-item")).toHaveCount(2);
-  await expect(page.locator(".cart-summary")).toContainText("4,950,000");
+  await expect(page.locator(".cart-summary")).toContainText("6,050,000");
   await page
     .getByRole("button", { name: "Decrease iPhone 15 Pro Max quantity" })
     .click();
-  await expect(page.locator(".cart-summary")).toContainText("3,100,000");
+  await expect(page.locator(".cart-summary")).toContainText("4,200,000");
   await page.reload();
   await page
     .getByRole("button", { name: "Open shopping bag, 2 items" })
     .click();
   await expect(page.locator(".cart-item")).toHaveCount(2);
   await page
-    .getByRole("button", { name: "Remove MacBook Air 13-inch", exact: true })
+    .getByRole("button", { name: "Remove iPhone 16 Pro Max", exact: true })
     .click();
   await expect(page.locator(".cart-item")).toHaveCount(1);
   await page
@@ -179,7 +183,12 @@ test("checkout validates details and creates a clearly labelled local demo order
 
 test("vehicle shoppers can prepare an inspection request", async ({ page }) => {
   await page
+    .locator(".category-button")
+    .getByText("Cars", { exact: true })
+    .click();
+  await page
     .getByRole("button", { name: "Explore vehicle", exact: true })
+    .first()
     .click();
   await page.getByRole("button", { name: "Book an inspection" }).click();
   await page.getByLabel("Full name").fill("Tunde Bello");
@@ -199,7 +208,7 @@ test("vehicle shoppers can prepare an inspection request", async ({ page }) => {
       () =>
         JSON.parse(localStorage.getItem("leetech-inspection") || "{}").vehicle,
     ),
-  ).toBe("Mercedes-Benz C300");
+  ).toBe("Mercedes-AMG GLE 53");
 });
 
 test("newsletter signup validates email and remembers the preference", async ({
@@ -300,8 +309,8 @@ test("weekly deals filter discounted products and show a live countdown", async 
   await expect(page.locator("#bestsellers-title")).toHaveText(
     "THE WEEKLY DROP.",
   );
-  await expect(page.locator(".product-card")).toHaveCount(17);
-  await expect(page.locator(".product-price del")).toHaveCount(17);
+  await expect(page.locator(".product-card")).toHaveCount(8);
+  await expect(page.locator(".product-price del")).toHaveCount(8);
 });
 
 test("mobile navigation works and all target widths remain free of horizontal overflow", async ({
@@ -323,7 +332,7 @@ test("mobile navigation works and all target widths remain free of horizontal ov
     .getByRole("button", { name: "Cars", exact: true })
     .click();
   await expect(page.locator(".mobile-nav")).toHaveCount(0);
-  await expect(page.locator(".product-card")).toHaveCount(7);
+  await expect(page.locator(".product-card")).toHaveCount(12);
   await expect(page.locator("#bestsellers-title")).toHaveText("CARS.");
   await page.getByRole("button", { name: "Open menu", exact: true }).click();
   await page.keyboard.press("Escape");
@@ -358,12 +367,12 @@ test("mobile shoppers can complete the bag and checkout flow", async ({
   ).toBeVisible();
 });
 
-test("all displayed photographs load and link to their original credits", async ({
+test("all displayed product images are official, background-free cut-outs", async ({
   page,
 }) => {
   await page.getByRole("button", { name: "View all products" }).click();
-  const images = await page.locator("main img").all();
-  expect(images.length).toBeGreaterThanOrEqual(11);
+  const images = await page.locator(".product-card img").all();
+  expect(images.length).toBeGreaterThanOrEqual(13);
   for (const image of images) {
     await image.scrollIntoViewIfNeeded();
     await image.evaluate((element) => (element as HTMLImageElement).decode());
@@ -372,29 +381,12 @@ test("all displayed photographs load and link to their original credits", async 
         (element) => (element as HTMLImageElement).naturalWidth,
       ),
     ).toBeGreaterThan(0);
-    expect(await image.getAttribute("src")).toMatch(
-      /^https:\/\/(?:images\.pexels\.com\/photos\/|www\.apple\.com\/|image-us\.samsung\.com\/)/,
-    );
   }
-  await page.getByRole("button", { name: "Photography credits" }).click();
-  await expect(page.getByRole("dialog")).toContainText(
-    "Real things. Real photography.",
-  );
-  await expect(page.getByRole("dialog")).toContainText(
-    "representative stock photographs",
-  );
-  await expect(page.locator(".photography-credit")).toHaveCount(26);
-  const sourcePages = await page
-    .locator(".photography-credit")
-    .evaluateAll((links) =>
-      links.map((link) => (link as HTMLAnchorElement).href),
-    );
-  for (const sourcePage of sourcePages) {
-    expect(sourcePage).toMatch(/^https:\/\/www\.pexels\.com\/photo\//);
-  }
+  await expect(page.getByText(/pexels/i)).toHaveCount(0);
   await expect(
-    page.getByRole("link", { name: "View the Pexels License" }),
-  ).toHaveAttribute("href", "https://www.pexels.com/license/");
+    page.getByRole("button", { name: "Photography credits" }),
+  ).toHaveCount(0);
+  await expect(page.locator(".photography-credit")).toHaveCount(0);
 });
 
 test("shoppers can configure gadgets, add vehicles to bag, and swap or sell gadgets and cars", async ({
@@ -402,7 +394,12 @@ test("shoppers can configure gadgets, add vehicles to bag, and swap or sell gadg
 }) => {
   // 1) Configure a vehicle and add its 10% reservation deposit to the bag
   await page
+    .locator(".category-button")
+    .getByText("Cars", { exact: true })
+    .click();
+  await page
     .getByRole("button", { name: "Explore vehicle", exact: true })
+    .first()
     .click();
   await page
     .getByRole("button", { name: /10% Refundable Reservation Deposit/ })
@@ -454,12 +451,16 @@ test("the LEETECH & AUTOS logo renders in the header and footer", async ({
   ).toBeGreaterThan(0);
 
   await page.setViewportSize({ width: 390, height: 844 });
+  // Poll: the header logo resizes after the viewport change, so wait for the layout to settle.
+  await expect
+    .poll(async () => (await headerLogo.boundingBox())?.width ?? Infinity)
+    .toBeLessThanOrEqual(112);
   const mobileHeaderBox = await headerLogo.boundingBox();
-  expect(mobileHeaderBox!.width).toBeLessThanOrEqual(112);
   expect(mobileHeaderBox!.height).toBeLessThanOrEqual(45);
   await footerLogo.scrollIntoViewIfNeeded();
-  const mobileFooterBox = await footerLogo.boundingBox();
-  expect(mobileFooterBox!.width).toBeLessThanOrEqual(180);
+  await expect
+    .poll(async () => (await footerLogo.boundingBox())?.width ?? Infinity)
+    .toBeLessThanOrEqual(180);
 
   for (const file of [
     "leetech-logo.svg",

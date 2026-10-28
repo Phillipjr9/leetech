@@ -2656,7 +2656,7 @@ p {
     margin-top: 23px;
   }
   .value-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 37px;
     padding-top: 65px;
   }

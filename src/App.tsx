@@ -22,7 +22,6 @@ import {
   ChevronDown,
   ChevronRight,
   CircleCheck,
-  Cog,
   CreditCard,
   Globe2,
   Headphones,
@@ -41,11 +40,9 @@ import {
   Star,
   Trash2,
   Truck,
-  Tv,
   X,
   Zap,
 } from "lucide-react";
-import photographs from "./data/photography.json";
 import { latestDevices, type LatestDevice } from "./data/latest-devices";
 import { LatestDevices, LatestDeviceDetails } from "./components/LatestDevices";
 import logoFull from "./assets/logo/leetech-logo.svg?inline";
@@ -53,18 +50,40 @@ import logoCompact from "./assets/logo/leetech-logo-compact.svg?inline";
 import logoLight from "./assets/logo/leetech-logo-light.svg?inline";
 import "./storefront.css";
 
-const photo = (key: string) => photographs.find((image) => image.key === key)!;
+import iphone15Img from "./assets/products/iphone-15-pro-max.webp";
+import iphone16Img from "./assets/products/iphone-16-pro-max.webp";
+import galaxyS24Img from "./assets/products/galaxy-s24-ultra.webp";
+import galaxyS25Img from "./assets/products/galaxy-s25-ultra.webp";
+import macbookAirM2Img from "./assets/products/macbook-air-m2.webp";
+import buds3ProImg from "./assets/products/galaxy-buds-3-pro.webp";
+import apple20wImg from "./assets/products/apple-20w-usb-c-adapter.webp";
+import samsung25wImg from "./assets/products/samsung-25w-usb-c-adapter.webp";
+import magsafeImg from "./assets/products/magsafe-charger.webp";
+import macbookAirImg from "./assets/products/macbook-air-m1.webp";
+import macbookProImg from "./assets/products/macbook-pro-16-m3-max.webp";
+import rogImg from "./assets/products/rog-zephyrus-g16.webp";
+import sonyImg from "./assets/products/sony-wh-1000xm5.webp";
+import airpodsImg from "./assets/products/airpods-pro-3-case.webp";
+import gleImg from "./assets/products/mercedes-amg-gle-53.webp";
+import g63Img from "./assets/products/mercedes-amg-g63.webp";
+import rangeRoverImg from "./assets/products/range-rover-autobiography.webp";
+import lexusImg from "./assets/products/lexus-rx-350.webp";
+import audiImg from "./assets/products/audi-tt-rs-2019.webp";
+import ioniq5Img from "./assets/products/hyundai-ioniq-5-2024.webp";
+import bmwX5Img from "./assets/products/bmw-x5-2026.webp";
+import acuraMdxImg from "./assets/products/acura-mdx-2024.webp";
+import crvImg from "./assets/products/honda-cr-v-2024.webp";
+import tucsonImg from "./assets/products/hyundai-tucson-2026.webp";
+import bmwX3Img from "./assets/products/bmw-x3-2024.webp";
+import acuraRdxImg from "./assets/products/acura-rdx-2024.webp";
 
 type Category =
   | "all"
   | "gadgets"
   | "phones"
   | "laptops"
-  | "tablets"
   | "accessories"
-  | "electronics"
   | "cars"
-  | "auto-parts"
   | "new-cars"
   | "used-cars"
   | "deals"
@@ -113,8 +132,7 @@ type InfoKey =
   | "payment"
   | "privacy"
   | "terms"
-  | "faq"
-  | "photography";
+  | "faq";
 
 const products: Product[] = [
   {
@@ -125,7 +143,7 @@ const products: Product[] = [
     detail: "256GB / Natural Titanium",
     price: 1850000,
     original: 2100000,
-    image: photo("iphone").src,
+    image: iphone15Img,
     badge: "BEST SELLER",
     rating: "4.9",
     kind: "gadget",
@@ -137,62 +155,6 @@ const products: Product[] = [
     ],
   },
   {
-    id: "macbook-air",
-    name: "MacBook Air 13-inch",
-    category: "laptops",
-    label: "LAPTOPS",
-    detail: "M1 Chip / 8GB / 256GB SSD",
-    price: 1250000,
-    original: 1450000,
-    image: photo("macbook").src,
-    badge: "TOP RATED",
-    rating: "5.0",
-    kind: "gadget",
-    specs: [
-      "Apple M1 chip",
-      "8GB unified memory",
-      "256GB SSD storage",
-      "13.3-inch Retina display",
-    ],
-  },
-  {
-    id: "sony-xm5",
-    name: "Sony WH-1000XM5",
-    category: "accessories",
-    label: "AUDIO & ACCESSORIES",
-    detail: "Wireless noise cancelling / Black",
-    price: 485000,
-    original: 580000,
-    image: photo("headphones").src,
-    badge: "SAVE 16%",
-    rating: "4.8",
-    kind: "gadget",
-    specs: [
-      "Industry-leading noise cancellation",
-      "Up to 30 hours battery life",
-      "Multipoint Bluetooth connectivity",
-      "Premium carrying case included",
-    ],
-  },
-  {
-    id: "mercedes-c300",
-    name: "Mercedes-Benz C300",
-    category: "used-cars",
-    label: "VERIFIED VEHICLES",
-    detail: "2020 / Foreign used / Automatic",
-    price: 38500000,
-    image: photo("sedan").src,
-    badge: "VERIFIED",
-    rating: "4.9",
-    kind: "car",
-    specs: [
-      "2020 model / Foreign used",
-      "2.0L turbocharged petrol engine",
-      "Automatic transmission",
-      "Documentation & inspection available",
-    ],
-  },
-  {
     id: "iphone-16-pro-max",
     name: "iPhone 16 Pro Max",
     category: "phones",
@@ -200,7 +162,7 @@ const products: Product[] = [
     detail: "256GB / Desert Titanium / A18 Pro",
     price: 2350000,
     original: 2550000,
-    image: photo("iphone16").src,
+    image: iphone16Img,
     badge: "NEW ARRIVAL",
     rating: "5.0",
     kind: "gadget",
@@ -219,7 +181,7 @@ const products: Product[] = [
     detail: "512GB / Titanium Gray / S-Pen",
     price: 1980000,
     original: 2200000,
-    image: photo("s24ultra").src,
+    image: galaxyS24Img,
     badge: "SAVE 10%",
     rating: "4.9",
     kind: "gadget",
@@ -231,14 +193,137 @@ const products: Product[] = [
     ],
   },
   {
+    id: "galaxy-s25-ultra",
+    name: "Samsung Galaxy S25 Ultra",
+    category: "phones",
+    label: "SMARTPHONES",
+    detail: "256GB / Titanium Black / S-Pen",
+    price: 1900000,
+    image: galaxyS25Img,
+    badge: "NEW ARRIVAL",
+    rating: "4.9",
+    kind: "gadget",
+    specs: [
+      "Snapdragon 8 Elite for Galaxy",
+      "200MP wide camera with 5x telephoto",
+      "Titanium frame with built-in S-Pen",
+      "Dual Nano-SIM + eSIM unlocked",
+    ],
+  },
+  {
+    id: "macbook-air-m2",
+    name: "MacBook Air 13-inch (M2)",
+    category: "laptops",
+    label: "LAPTOPS",
+    detail: "M2 Chip / 8GB / 256GB SSD / Midnight",
+    price: 1100000,
+    image: macbookAirM2Img,
+    badge: "NEW LISTING",
+    rating: "4.9",
+    kind: "gadget",
+    specs: [
+      "Apple M2 chip with 8-core CPU and 8-core GPU",
+      "8GB unified memory & 256GB SSD storage",
+      "13.6-inch Liquid Retina display",
+      "Fanless design with up to 18 hours battery life",
+    ],
+  },
+  {
+    id: "galaxy-buds-3-pro",
+    name: "Samsung Galaxy Buds3 Pro",
+    category: "accessories",
+    label: "HEADPHONES",
+    detail: "Active Noise Cancelling / Silver",
+    price: 245000,
+    image: buds3ProImg,
+    badge: "NEW ARRIVAL",
+    rating: "4.8",
+    kind: "gadget",
+    specs: [
+      "Active noise cancelling with ambient sound mode",
+      "IP57 water and dust resistance",
+      "Real-time interpreter with Galaxy AI",
+      "Works with Android and iPhone",
+    ],
+  },
+  {
+    id: "apple-20w-usb-c-adapter",
+    name: "Apple 20W USB-C Power Adapter",
+    category: "accessories",
+    label: "PHONE ACCESSORIES",
+    detail: "20W / USB-C / White",
+    price: 65000,
+    image: apple20wImg,
+    rating: "4.8",
+    kind: "gadget",
+    specs: [
+      "20W USB-C fast charging for iPhone",
+      "Compact single-port power adapter",
+      "Use with any USB-C to Lightning or USB-C cable",
+    ],
+  },
+  {
+    id: "samsung-25w-usb-c-adapter",
+    name: "Samsung 25W USB-C Adapter",
+    category: "accessories",
+    label: "PHONE ACCESSORIES",
+    detail: "25W Super Fast Charging / Black",
+    price: 55000,
+    image: samsung25wImg,
+    rating: "4.8",
+    kind: "gadget",
+    specs: [
+      "25W Super Fast Charging for Galaxy devices",
+      "USB Power Delivery compatible",
+      "Compact single-port wall charger",
+    ],
+  },
+  {
+    id: "magsafe-charger",
+    name: "MagSafe Charger (USB-C)",
+    category: "accessories",
+    label: "PHONE ACCESSORIES",
+    detail: "1 metre / Coiled woven cable",
+    price: 75000,
+    image: magsafeImg,
+    badge: "ACCESSORY",
+    rating: "4.8",
+    kind: "gadget",
+    specs: [
+      "MagSafe circular connector for compatible iPhones",
+      "USB-C connector for the power adapter",
+      "Coiled white woven cable, 1 metre",
+      "Official Apple accessory",
+    ],
+  },
+  {
+    id: "macbook-air",
+    name: "MacBook Air 13-inch",
+    category: "laptops",
+    label: "LAPTOPS",
+    detail: "M1 Chip / 8GB / 256GB SSD",
+    price: 1250000,
+    original: 1450000,
+    image: macbookAirImg,
+    badge: "TOP RATED",
+    rating: "5.0",
+    kind: "gadget",
+    specs: [
+      "Apple M1 chip",
+      "8GB unified memory",
+      "256GB SSD storage",
+      "13.3-inch Retina display",
+    ],
+  },
+  {
     id: "macbook-pro-16",
     name: "MacBook Pro 16-inch",
     category: "laptops",
     label: "LAPTOPS",
-    detail: "M3 Max / 36GB / 1TB SSD / Space Black",
+    detail: "M3 Max / 36GB / 1TB SSD / Silver",
     price: 4650000,
     original: 4950000,
-    image: photo("macbookPro").src,
+    image: macbookProImg,
     badge: "FLAGSHIP",
     rating: "5.0",
     kind: "gadget",
@@ -257,7 +342,7 @@ const products: Product[] = [
     detail: "Core Ultra 9 / RTX 4080 / 32GB / 1TB",
     price: 3200000,
     original: 3450000,
-    image: photo("gamingLaptop").src,
+    image: rogImg,
     badge: "SAVE 7%",
     rating: "4.9",
     kind: "gadget",
@@ -269,193 +354,41 @@ const products: Product[] = [
     ],
   },
   {
-    id: "ipad-air",
-    name: "iPad Air 11-inch",
-    category: "tablets",
-    label: "TABLETS",
-    detail: "M2 Chip / 128GB / Space Grey",
-    price: 1050000,
-    original: 1250000,
-    image: photo("tablet").src,
-    badge: "NEW ARRIVAL",
-    rating: "4.9",
-    kind: "gadget",
-    specs: [
-      "Powerful Apple M2 chip",
-      "128GB storage",
-      "11-inch Liquid Retina display",
-      "Wi-Fi connectivity",
-    ],
-  },
-  {
-    id: "ipad-pro-13",
-    name: "iPad Pro 13-inch M4",
-    category: "tablets",
-    label: "TABLETS",
-    detail: "M4 Chip / 256GB / Ultra Retina XDR OLED",
-    price: 2150000,
-    original: 2350000,
-    image: photo("ipadPro").src,
-    badge: "PRO OLED",
-    rating: "5.0",
-    kind: "gadget",
-    specs: [
-      "Apple M4 chip with 10-core CPU",
-      "13-inch Tandem OLED Ultra Retina XDR display",
-      "Ultra-thin 5.1mm Space Black enclosure",
-      "Supports Apple Pencil Pro & Magic Keyboard",
-    ],
-  },
-  {
-    id: "apple-watch-ultra-2",
-    name: "Apple Watch Ultra 2",
+    id: "sony-xm5",
+    name: "Sony WH-1000XM5",
     category: "accessories",
-    label: "AUDIO & ACCESSORIES",
-    detail: "49mm Titanium / GPS + Cellular",
-    price: 1350000,
-    original: 1500000,
-    image: photo("watchUltra").src,
-    badge: "SAVE 10%",
-    rating: "4.9",
+    label: "HEADPHONES",
+    detail: "Wireless noise cancelling / Black",
+    price: 485000,
+    original: 580000,
+    image: sonyImg,
+    badge: "SAVE 16%",
+    rating: "4.8",
     kind: "gadget",
     specs: [
-      "49mm aerospace-grade titanium case",
-      "3000-nit Always-On Retina sapphire display",
-      "Up to 72 hours low-power battery life",
-      "Precision dual-frequency GPS + cellular",
+      "Industry-leading noise cancellation",
+      "Up to 30 hours battery life",
+      "Multipoint Bluetooth connectivity",
+      "Premium carrying case included",
     ],
   },
   {
-    id: "airpods-pro-2",
-    name: "AirPods Pro 2 (USB-C)",
+    id: "airpods-pro-3",
+    name: "AirPods Pro 3 (USB-C)",
     category: "accessories",
-    label: "AUDIO & ACCESSORIES",
+    label: "HEADPHONES",
     detail: "MagSafe Charging Case / Active ANC",
     price: 395000,
     original: 450000,
-    image: photo("airpodsPro").src,
+    image: airpodsImg,
     badge: "SAVE 12%",
     rating: "4.9",
     kind: "gadget",
     specs: [
       "Apple H2 headphone chip with Adaptive Audio",
-      "2x more Active Noise Cancellation",
-      "Dust, sweat, and water resistant (IP54)",
-      "USB-C MagSafe case with Precision Finding",
-    ],
-  },
-  {
-    id: "alloy-wheels",
-    name: "19-inch Alloy Wheel Set",
-    category: "auto-parts",
-    label: "AUTO PARTS",
-    detail: "Multi-spoke / Set of 4 / Graphite",
-    price: 680000,
-    original: 850000,
-    image: photo("wheel").src,
-    badge: "SAVE 20%",
-    rating: "4.8",
-    kind: "gadget",
-    specs: [
-      "Set of 4 premium alloy wheels",
-      "19-inch multi-spoke design",
-      "Precision forged construction",
-      "Fitment check required before purchase",
-    ],
-  },
-  {
-    id: "brembo-brake-kit",
-    name: "Brembo GT-S Big Brake Kit",
-    category: "auto-parts",
-    label: "AUTO PARTS",
-    detail: "6-Piston Calipers / Cross-Drilled Rotors",
-    price: 1450000,
-    original: 1650000,
-    image: photo("brakeKit").src,
-    badge: "PERFORMANCE",
-    rating: "4.9",
-    kind: "gadget",
-    specs: [
-      "Monoblock 6-piston aluminium calipers in Rosso Red",
-      "380mm two-piece floating vented disc rotors",
-      "Low-dust high-friction ceramic brake pads",
-      "Direct bolt-on for Mercedes, BMW & Lexus SUVs",
-    ],
-  },
-  {
-    id: "amg-cockpit-pack",
-    name: "AMG Steering & 4K Dashcam",
-    category: "auto-parts",
-    label: "AUTO PARTS",
-    detail: "Nappa Leather Wheel + Front/Rear 4K GPS",
-    price: 920000,
-    original: 1100000,
-    image: photo("steeringTrim").src,
-    badge: "SAVE 16%",
-    rating: "4.8",
-    kind: "gadget",
-    specs: [
-      "Genuine flat-bottom Nappa leather steering wheel",
-      "Dual-channel 4K UHD Sony STARVIS night dashcam",
-      "Built-in GPS logger & 24-hour parking radar mode",
-      "Professional installation available in Lagos & Abuja",
-    ],
-  },
-  {
-    id: "playstation-5",
-    name: "PlayStation 5",
-    category: "electronics",
-    label: "GAMING & ELECTRONICS",
-    detail: "Disc Edition / 1TB / White",
-    price: 795000,
-    original: 1060000,
-    image: photo("console").src,
-    badge: "SAVE 25%",
-    rating: "4.9",
-    kind: "gadget",
-    specs: [
-      "1TB high-speed SSD",
-      "4K gaming support",
-      "DualSense wireless controller",
-      "Disc drive edition",
-    ],
-  },
-  {
-    id: "lg-oled-c4-65",
-    name: "LG OLED Evo C4 65-inch",
-    category: "electronics",
-    label: "GAMING & ELECTRONICS",
-    detail: "4K UHD Smart TV / 144Hz Dolby Vision",
-    price: 2480000,
-    original: 2780000,
-    image: photo("oledTv").src,
-    badge: "CINEMA GRADE",
-    rating: "4.9",
-    kind: "gadget",
-    specs: [
-      "65-inch Self-Lit OLED Evo 4K panel with Brightness Booster",
-      "α9 AI Processor Gen7 with Dolby Vision & Dolby Atmos",
-      "4x HDMI 2.1 ports with 144Hz VRR, G-Sync & FreeSync",
-      "Includes wall-mount bracket & nationwide insured delivery",
-    ],
-  },
-  {
-    id: "ecoflow-delta-pro",
-    name: "EcoFlow Solar Power Station",
-    category: "electronics",
-    label: "GAMING & ELECTRONICS",
-    detail: "3.6kWh LiFePO4 / 3600W Pure Sine Wave",
-    price: 2850000,
-    original: 3200000,
-    image: photo("powerStation").src,
-    badge: "POWER BACKUP",
-    rating: "5.0",
-    kind: "gadget",
-    specs: [
-      "3600Wh LFP battery capacity (6,500+ cycle life)",
-      "Powers AC units, fridges, workstations & home routers",
-      "X-Stream fast AC charge from 0 to 80% in 1 hour",
-      "Solar panel & smart home transfer switch compatible",
+      "Active Noise Cancellation & Transparency mode",
+      "Up to 8 hours listening, up to 24 hours with the case",
+      "IP57 dust, sweat and water resistance",
     ],
   },
   {
@@ -465,7 +398,7 @@ const products: Product[] = [
     label: "NEW VEHICLES",
     detail: "2025 / Brand new / Automatic",
     price: 185000000,
-    image: photo("suv").src,
+    image: gleImg,
     badge: "NEW ARRIVAL",
     rating: "5.0",
     kind: "car",
@@ -483,7 +416,7 @@ const products: Product[] = [
     label: "NEW VEHICLES",
     detail: "2025 / Brand new / 4.0L V8 Biturbo",
     price: 395000000,
-    image: photo("hero").src,
+    image: g63Img,
     badge: "FLAGSHIP SUV",
     rating: "5.0",
     kind: "car",
@@ -495,31 +428,13 @@ const products: Product[] = [
     ],
   },
   {
-    id: "land-cruiser-300",
-    name: "Toyota Land Cruiser 300 VXR",
-    category: "new-cars",
-    label: "NEW VEHICLES",
-    detail: "2025 / Brand new / 3.5L V6 Twin-Turbo",
-    price: 195000000,
-    image: photo("landCruiser").src,
-    badge: "EXECUTIVE 4X4",
-    rating: "5.0",
-    kind: "car",
-    specs: [
-      "2025 VXR Full Option / Brand new with custom clearance",
-      "3.5L V6 Twin-Turbo petrol paired with 10-speed automatic",
-      "Cool box, rear entertainment screens, JBL 14-speaker audio",
-      "360° Multi-Terrain Monitor & kinetic dynamic suspension",
-    ],
-  },
-  {
     id: "range-rover-autobiography",
     name: "Range Rover Autobiography",
     category: "new-cars",
     label: "NEW VEHICLES",
     detail: "2025 / Brand new / P530 Twin-Turbo V8",
     price: 310000000,
-    image: photo("rangeRover").src,
+    image: rangeRoverImg,
     badge: "BESPOKE LUXURY",
     rating: "5.0",
     kind: "car",
@@ -537,7 +452,7 @@ const products: Product[] = [
     label: "VERIFIED VEHICLES",
     detail: "2022 / Foreign used / Automatic / AWD",
     price: 46000000,
-    image: photo("lexusRx").src,
+    image: lexusImg,
     badge: "TOKUNBO VERIFIED",
     rating: "4.9",
     kind: "car",
@@ -549,21 +464,142 @@ const products: Product[] = [
     ],
   },
   {
-    id: "mercedes-e350-4matic",
-    name: "Mercedes-Benz E350 4MATIC",
+    id: "audi-tt-rs-2019",
+    name: "Audi TT RS",
     category: "used-cars",
-    label: "VERIFIED VEHICLES",
-    detail: "2021 / Foreign used / AMG Line",
-    price: 54000000,
-    image: photo("abujaSedan").src,
-    badge: "ABUJA & LAGOS",
+    label: "USED VEHICLES",
+    detail: "2019 / Used / 31,574 miles / RS",
+    price: 87322000,
+    image: audiImg,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2019 model / Used, 31,574 miles",
+      "2.5L TFSI turbo, 400 hp (RS spec)",
+      "Quattro all-wheel drive",
+      "Full inspection and papers check before handover",
+    ],
+  },
+  {
+    id: "hyundai-ioniq-5-2024",
+    name: "Hyundai Ioniq 5 SEL",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2024 / Used / Battery electric / 31,928 miles",
+    price: 32158000,
+    image: ioniq5Img,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2024 model / Used, 31,928 miles",
+      "Battery electric (SEL trim)",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "bmw-x5-2026",
+    name: "BMW X5 xDrive40i",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2026 / Used / 1,252 miles / xDrive40i",
+    price: 94026000,
+    image: bmwX5Img,
     rating: "4.9",
     kind: "car",
     specs: [
-      "2021 facelift model / Foreign used in pristine condition",
-      "2.0L Inline-4 Turbo (255 hp) with 9G-TRONIC 4MATIC",
-      "MBUX dual widescreen cockpit, 64-colour ambient lighting",
-      "150-point mechanical & diagnostic inspection certificate",
+      "2026 model / Used, 1,252 miles",
+      "xDrive40i all-wheel drive",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "acura-mdx-2024",
+    name: "Acura MDX Base",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2024 / Certified Pre-Owned / 27,792 miles",
+    price: 49686000,
+    badge: "CERTIFIED PRE-OWNED",
+    image: acuraMdxImg,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2024 model / Certified Pre-Owned, 27,792 miles",
+      "Base trim with SH-AWD",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "honda-cr-v-2024",
+    name: "Honda CR-V EX",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2024 / Used / 46,970 miles / EX",
+    price: 38187000,
+    badge: "PRICE DROP",
+    image: crvImg,
+    rating: "4.7",
+    kind: "car",
+    specs: [
+      "2024 model / Used, 46,970 miles",
+      "EX trim",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "hyundai-tucson-2026",
+    name: "Hyundai Tucson SEL",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2026 / Used / 3,215 miles / SEL",
+    price: 39945000,
+    image: tucsonImg,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2026 model / Used, 3,215 miles",
+      "SEL trim",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "bmw-x3-2024",
+    name: "BMW X3 sDrive30i",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2024 / Used / 44,980 miles / sDrive30i",
+    price: 39892000,
+    image: bmwX3Img,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2024 model / Used, 44,980 miles",
+      "sDrive30i rear-wheel drive",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
+    ],
+  },
+  {
+    id: "acura-rdx-2024",
+    name: "Acura RDX A-Spec",
+    category: "used-cars",
+    label: "USED VEHICLES",
+    detail: "2024 / Certified Pre-Owned / 54,729 miles / A-Spec",
+    price: 47000000,
+    badge: "CERTIFIED PRE-OWNED",
+    image: acuraRdxImg,
+    rating: "4.8",
+    kind: "car",
+    specs: [
+      "2024 model / Certified Pre-Owned, 54,729 miles",
+      "A-Spec trim",
+      "Full inspection and papers check before handover",
+      "Ready for Lagos & Abuja delivery",
     ],
   },
 ];
@@ -597,12 +633,6 @@ const swapCatalog = {
       baseValue: 1950000,
     },
     { id: "trade-mba", name: 'MacBook Air 13" (M1 / M2)', baseValue: 820000 },
-    {
-      id: "trade-ipad",
-      name: "iPad Pro / iPad Air (M1 / M2)",
-      baseValue: 740000,
-    },
-    { id: "trade-ps5", name: "PlayStation 5 Console", baseValue: 520000 },
   ],
   car: [
     {
@@ -663,9 +693,7 @@ const categories = [
   { id: "phones", label: "Phones", icon: Smartphone },
   { id: "laptops", label: "Laptops", icon: Laptop },
   { id: "accessories", label: "Accessories", icon: Headphones },
-  { id: "electronics", label: "Electronics", icon: Tv },
   { id: "cars", label: "Cars", icon: CarFront },
-  { id: "auto-parts", label: "Auto parts", icon: Cog },
   { id: "new-cars", label: "New cars", icon: CarFront },
   { id: "used-cars", label: "Used cars", icon: CarFront },
 ] as const;
@@ -675,11 +703,8 @@ const categoryNames: Record<Category, string> = {
   gadgets: "Gadgets",
   phones: "Phones",
   laptops: "Laptops",
-  tablets: "Tablets",
   accessories: "Accessories",
-  electronics: "Electronics",
   cars: "Cars",
-  "auto-parts": "Auto parts",
   "new-cars": "New cars",
   "used-cars": "Used cars",
   deals: "The weekly drop",
@@ -755,8 +780,8 @@ const infoContent: Record<
     intro:
       "LEETECH & AUTOS brings premium technology and quality vehicles together in one trusted Nigerian destination.",
     details: [
-      "We curate phones, laptops, tablets, electronics and accessories for the way you live and work.",
-      "Our auto collection brings together quality new and used vehicles, accessories and parts.",
+      "We curate phones, laptops, headphones and phone accessories for the way you live and work.",
+      "Our auto collection brings together quality new and used vehicles.",
       "Our standard is simple: considered products, transparent information and support from real people.",
     ],
   },
@@ -791,7 +816,7 @@ const infoContent: Record<
   support: {
     title: "Real people. Expert advice.",
     intro:
-      "Need help choosing a device, finding the right part or understanding a vehicle? Reach our team directly by phone or on TikTok.",
+      "Need help choosing a device, finding the right device or understanding a vehicle? Reach our team directly by phone or on TikTok.",
     details: [
       "Direct phone line: 09138130976 — speak with our gadget & auto specialists for enquiries, swaps, or inspections.",
       "Official TikTok: @leetech.autos (tiktok.com/@leetech.autos) — watch live unboxings, vehicle walkarounds, and daily drops.",
@@ -833,16 +858,6 @@ const infoContent: Record<
       "Can I inspect a vehicle? Yes. Open a vehicle listing and choose Book an inspection to prepare your preferred date and time.",
       "Do you deliver outside Lagos? Nationwide gadget delivery is planned for all 36 states and the FCT, with fees confirmed before purchase.",
       "Can I pay in instalments? Flexible payment availability depends on the product and eligibility. Check the available options before confirming an order.",
-    ],
-  },
-  photography: {
-    title: "Real things. Real photography.",
-    intro:
-      "The latest-device showcase uses official Apple and Samsung product images. Our lifestyle and existing collection images are credited to their photographers on Pexels. No images are AI-generated by LEETECH.",
-    details: [
-      "Stock photographs are credited to the photographers below and used under the Pexels License. Official manufacturer images remain the property of Apple or Samsung; their original sources are linked separately.",
-      "These are representative stock photographs, not photographs of LEETECH's own inventory. Exact models, configurations, condition and availability must be confirmed before purchase.",
-      "The latest models are presented for enquiry. Manufacturer release dates do not confirm Nigerian stock, delivery times or LEETECH pricing, and no manufacturer affiliation is implied.",
     ],
   },
 };
@@ -979,7 +994,7 @@ function getProductConfig(product: Product) {
       tradeInTitle: "Apply Apple / Samsung Trade-In Credit on Delivery",
     };
   }
-  if (product.category === "laptops" || product.category === "tablets") {
+  if (product.category === "laptops") {
     return {
       step1Label: "ENCLOSURE FINISH",
       finishes: [
@@ -1008,32 +1023,6 @@ function getProductConfig(product: Product) {
       careTitle: "AppleCare+ / 2-Year LEETECH Pro Hardware Warranty",
       carePrice: 185000,
       tradeInTitle: "Trade In an Eligible MacBook or iPad",
-    };
-  }
-  if (product.category === "auto-parts") {
-    return {
-      step1Label: "FINISH / SPEC",
-      finishes: [
-        { name: "Satin Graphite", hex: "#4a4d52" },
-        { name: "Gloss Black", hex: "#1b1c1f" },
-        { name: "Rosso Performance", hex: "#c4202b" },
-      ],
-      step2Label: "INSTALLATION & FITMENT",
-      tiers: [
-        {
-          label: "Parts Only (Nationwide Dispatch)",
-          delta: 0,
-          note: "Ships in reinforced crate",
-        },
-        {
-          label: "With Certified Lagos/Abuja Fitment",
-          delta: 85000,
-          note: "Installed & balanced by our techs",
-        },
-      ],
-      careTitle: "1-Year Structural & Fitment Guarantee",
-      carePrice: 45000,
-      tradeInTitle: "Include Vehicle VIN Fitment Verification",
     };
   }
   return {
@@ -1343,7 +1332,7 @@ export default function App() {
   const filteredProducts = products.filter((p) => {
     if (category === "all") return true;
     if (category === "gadgets")
-      return p.kind === "gadget" && p.category !== "auto-parts";
+      return p.kind === "gadget";
     if (category === "cars") return p.kind === "car";
     if (category === "deals") return Boolean(p.original);
     if (category === "saved") return wishlist.includes(p.id);
@@ -1627,9 +1616,7 @@ export default function App() {
                       [
                         "phones",
                         "laptops",
-                        "tablets",
                         "accessories",
-                        "electronics",
                       ] as Category[]
                     ).map((id) => (
                       <button key={id} onClick={() => browse(id)}>
@@ -1675,7 +1662,6 @@ export default function App() {
                         "cars",
                         "new-cars",
                         "used-cars",
-                        "auto-parts",
                       ] as Category[]
                     ).map((id) => (
                       <button key={id} onClick={() => browse(id)}>
@@ -1770,7 +1756,6 @@ export default function App() {
                 "gadgets",
                 "cars",
                 "accessories",
-                "auto-parts",
                 "deals",
                 "saved",
               ] as Category[]
@@ -1807,9 +1792,9 @@ export default function App() {
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
           <motion.img
-            className="hero-image"
-            src={photo("hero").src}
-            alt={photo("hero").alt}
+            className="hero-image hero-cutout"
+            src={rangeRoverImg}
+            alt="Official Land Rover image of the Range Rover Autobiography, background removed"
             width={2400}
             height={1254}
             fetchPriority="high"
@@ -2019,12 +2004,14 @@ export default function App() {
               >
                 <article className="product-card" data-product-id={product.id}>
                   <div className="product-media">
-                    <button
-                      className={`product-badge ${product.badge?.includes("SAVE") ? "badge-sale" : ""}`}
-                      onClick={() => openProduct(product)}
-                    >
-                      {product.badge}
-                    </button>
+                    {product.badge && (
+                      <button
+                        className={`product-badge ${product.badge.includes("SAVE") ? "badge-sale" : ""}`}
+                        onClick={() => openProduct(product)}
+                      >
+                        {product.badge}
+                      </button>
+                    )}
                     <button
                       className={`product-heart ${wishlist.includes(product.id) ? "is-saved" : ""}`}
                       onClick={() => toggleWishlist(product.id)}
@@ -2047,11 +2034,7 @@ export default function App() {
                     >
                       <img
                         src={product.image}
-                        alt={
-                          photographs.find(
-                            (image) => image.src === product.image,
-                          )?.alt || product.name
-                        }
+                        alt={product.name}
                         loading="lazy"
                         className={
                           product.id === "premium-suv"
@@ -2140,9 +2123,10 @@ export default function App() {
           <Reveal className="promo-grid">
             <div className="promo-block">
               <img
-                src={photo("techEditorial").src}
-                alt={photo("techEditorial").alt}
+                src={iphone16Img}
+                alt="Official Apple image of the iPhone 16 Pro Max in Desert Titanium"
                 loading="lazy"
+                className="promo-cutout"
               />
               <div className="promo-shade" />
               <div className="promo-copy">
@@ -2160,9 +2144,10 @@ export default function App() {
             </div>
             <div className="promo-block">
               <img
-                src={photo("suv").src}
-                alt={photo("suv").alt}
+                src={gleImg}
+                alt="Mercedes-AMG GLE 53 (2025) SUV"
                 loading="lazy"
+                className="promo-cutout"
               />
               <div className="promo-shade" />
               <div className="promo-copy">
@@ -2194,7 +2179,7 @@ export default function App() {
                   Trade in what you have. <em>Or sell it outright.</em>
                 </h2>
                 <p>
-                  We buy and swap clean smartphones, laptops, tablets, consoles,
+                  We buy and swap clean smartphones, laptops
                   and verified vehicles across Nigeria. Apply your instant
                   valuation toward any upgrade or receive same-day bank payout.
                 </p>
@@ -2282,7 +2267,7 @@ export default function App() {
               <em>without exception.</em>
             </h2>
             <p>
-              A little more consideration.
+              A little more consideration.{" "}
               <br />A completely different experience.
             </p>
             <button className="text-link" onClick={() => openInfo("about")}>
@@ -2308,9 +2293,9 @@ export default function App() {
           <Reveal>
             <div className="deal-banner">
               <img
-                className="deal-image"
-                src={photo("audioEditorial").src}
-                alt={photo("audioEditorial").alt}
+                className="deal-image deal-cutout"
+                src={airpodsImg}
+                alt="Official Apple image of AirPods Pro 3 in the MagSafe Charging Case"
                 loading="lazy"
               />
               <div className="deal-overlay" />
@@ -2548,11 +2533,8 @@ export default function App() {
                 [
                   "phones",
                   "laptops",
-                  "tablets",
                   "accessories",
-                  "electronics",
                   "cars",
-                  "auto-parts",
                 ] as Category[]
               ).map((id) => (
                 <button key={id} onClick={() => browse(id)}>
@@ -2592,9 +2574,6 @@ export default function App() {
               <button onClick={() => browse("deals")}>Latest deals</button>
               <button onClick={showLatestDevices}>Latest devices</button>
               <button onClick={() => browse("saved")}>Your wishlist</button>
-              <button onClick={() => openInfo("photography")}>
-                Photography credits <ArrowUpRight size={11} />
-              </button>
               <div className="footer-location">
                 <span className="status-dot" /> Based in Nigeria.
                 <br />
@@ -2879,12 +2858,6 @@ export default function App() {
             <div className="product-modal-content">
               <div className="product-modal-media">
                 <img src={selectedProduct.image} alt={selectedProduct.name} />
-                <button
-                  className="photo-source-link"
-                  onClick={() => openInfo("photography")}
-                >
-                  Real photography <ArrowUpRight size={12} />
-                </button>
                 <button
                   className={`product-heart ${wishlist.includes(selectedProduct.id) ? "is-saved" : ""}`}
                   onClick={() => toggleWishlist(selectedProduct.id)}
@@ -3732,56 +3705,6 @@ export default function App() {
                   >
                     <TikTok size={15} />
                     <span>TikTok: leetech.autos</span>
-                  </a>
-                </div>
-              )}
-              {infoKey === "photography" && (
-                <div className="photography-credits">
-                  <div className="latest-manufacturer-credits">
-                    <span className="eyebrow">
-                      OFFICIAL MANUFACTURER IMAGERY
-                    </span>
-                    {latestDevices.map((device) => (
-                      <a
-                        className="latest-source-credit"
-                        key={device.id}
-                        href={device.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span>
-                          <strong>{device.name}</strong>
-                          <small>{device.sourceLabel}</small>
-                        </span>
-                        <ArrowUpRight size={15} />
-                      </a>
-                    ))}
-                  </div>
-                  {photographs.map((image) => (
-                    <a
-                      key={image.key}
-                      href={image.sourcePage}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="photography-credit"
-                    >
-                      <img src={image.src} alt="" loading="lazy" />
-                      <span>
-                        <strong>{image.photographer}</strong>
-                        <small>
-                          {image.provider} / View original photograph
-                        </small>
-                      </span>
-                      <ArrowUpRight size={15} />
-                    </a>
-                  ))}
-                  <a
-                    className="text-link"
-                    href="https://www.pexels.com/license/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View the Pexels License <ArrowUpRight size={15} />
                   </a>
                 </div>
               )}

@@ -1032,26 +1032,6 @@ em {
 .modal-secondary-action {
   color: #bdbbb9;
 }
-.photo-source-link {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 9px 12px;
-  min-height: 33px;
-  background: #181715d4;
-  border: 1px solid #b2afab30;
-  color: #d5d4d2;
-  font-size: 9px;
-  backdrop-filter: blur(7px);
-  border-radius: 1px;
-}
-.photo-source-link:hover {
-  color: #fff;
-  border-color: #c5b9a9;
-}
 .cart-item {
   border-color: #403e3c;
 }
@@ -1116,49 +1096,6 @@ em {
 }
 .info-content > .text-link {
   color: #cccac8;
-}
-.photography-credits {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
-}
-.photography-credit {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border-top: 1px solid #474543;
-  padding: 13px 0;
-}
-.photography-credit > img {
-  width: 66px;
-  height: 55px;
-  border-radius: 1px;
-  object-fit: cover;
-}
-.photography-credit > span {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.photography-credit strong {
-  font-size: 12px;
-  font-weight: 500;
-  color: #d0cecc;
-}
-.photography-credit small {
-  font-size: 9px;
-  color: #92908c;
-}
-.photography-credit > svg {
-  color: #afadab;
-}
-.photography-credit:hover strong {
-  color: #e6b7a1;
-}
-.photography-credits > .text-link {
-  margin-top: 16px;
-  font-size: 10px;
 }
 .toast {
   background: #252423;
@@ -1575,7 +1512,7 @@ em {
     font-size: 9px;
   }
   .value-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 38px;
     padding-top: 76px;
   }
@@ -2368,29 +2305,8 @@ em {
   .modal-price {
     font-size: 24px;
   }
-  .photo-source-link {
-    left: 14px;
-    bottom: 13px;
-    font-size: 8px;
-    min-height: 31px;
-    padding: 8px 10px;
-  }
   .info-content > h3 {
     font-size: 35px;
-  }
-  .photography-credit {
-    gap: 12px;
-    padding-block: 13px;
-  }
-  .photography-credit > img {
-    width: 57px;
-    height: 49px;
-  }
-  .photography-credit strong {
-    font-size: 11px;
-  }
-  .photography-credit small {
-    font-size: 8px;
   }
   .toast {
     font-size: 9px;
@@ -3077,4 +2993,63 @@ em {
 }
 .mobile-contact-link svg {
   color: var(--red-light);
+}
+
+/* Transparent product cut-outs. The original photograph backgrounds were
+   removed, so every product sits directly on the storefront surface. */
+.product-image-button > img,
+.product-modal-media > img,
+.cart-item > img,
+.search-result > img,
+.inspection-vehicle > img {
+  object-fit: contain;
+  box-sizing: border-box;
+}
+.product-image-button > img {
+  padding: 12% 10%;
+}
+.product-modal-media > img {
+  padding: 9%;
+}
+.cart-item > img,
+.search-result > img,
+.inspection-vehicle > img {
+  background: transparent;
+  padding: 4px;
+}
+.promo-block:has(> img.promo-cutout) {
+  height: 480px;
+}
+.promo-block > img.promo-cutout {
+  object-fit: contain;
+  object-position: 50% 0%;
+  padding: 26px 34px 250px;
+  box-sizing: border-box;
+}
+.deal-image.deal-cutout {
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: normal;
+  transform: none;
+  top: 4%;
+  right: 4%;
+  height: 92%;
+  width: 52%;
+}
+.hero-image.hero-cutout {
+  inset: auto;
+  top: 14%;
+  left: 2%;
+  right: auto;
+  width: 52%;
+  height: 72%;
+  transform: none;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 480px) {
+  .value-intro h2 em {
+    white-space: normal;
+  }
 }
