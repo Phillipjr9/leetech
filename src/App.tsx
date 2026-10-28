@@ -1066,6 +1066,20 @@ function store(key: string, value: unknown) {
   }
 }
 
+/* Hero copy rises in one line at a time. Reduced-motion visitors see it at once. */
+function useHeroRise() {
+  const reduced = useReducedMotion();
+  return (i: number) => ({
+    initial: reduced ? false : { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.75,
+      delay: 0.25 + i * 0.12,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  });
+}
+
 function Reveal({
   children,
   className = "",
@@ -1270,6 +1284,7 @@ export default function App() {
     return end.getTime();
   });
   const reduced = useReducedMotion();
+  const rise = useHeroRise();
   const closeDialog = useRef(() => setOverlay(null)).current;
 
   useEffect(() => {
@@ -1804,28 +1819,25 @@ export default function App() {
           />
           <div className="hero-shade" />
           <div className="container hero-inner">
-            <motion.div
-              className="hero-copy"
-              initial={reduced ? false : { opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15 }}
-            >
-              <div className="eyebrow hero-eyebrow">
+            <div className="hero-copy">
+              <motion.div className="eyebrow hero-eyebrow" {...rise(0)}>
                 <span /> EXCEPTIONAL BY DESIGN. EXTRAORDINARY BY CHOICE.
-              </div>
-              <h1 id="hero-title">
+              </motion.div>
+              <motion.h1 id="hero-title" {...rise(1)}>
                 LEETECH
                 <br />
                 <span className="hero-brand-classic">
                   &amp; AUTOS<span className="red-dot">.</span>
                 </span>
-              </h1>
-              <h2 className="hero-tagline">GADGETS. CARS. POWER.</h2>
-              <p>
+              </motion.h1>
+              <motion.h2 className="hero-tagline" {...rise(2)}>
+                GADGETS. CARS. POWER.
+              </motion.h2>
+              <motion.p {...rise(3)}>
                 Exceptional technology. Remarkable drives.
                 <br />A considered collection for a life well lived.
-              </p>
-              <div className="hero-ctas">
+              </motion.p>
+              <motion.div className="hero-ctas" {...rise(4)}>
                 <button
                   className="button button-red"
                   onClick={() => browse("gadgets")}
@@ -1838,8 +1850,8 @@ export default function App() {
                 >
                   View car deals <ArrowUpRight size={18} />
                 </button>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
           <div className="hero-bottom-line" />
         </section>
