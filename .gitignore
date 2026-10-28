@@ -5,3 +5,5 @@ dist/
 test-results/
 playwright-report/
 *.local
+# TypeScript build cache
+tsconfig.tsbuildinfo
